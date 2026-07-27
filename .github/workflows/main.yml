@@ -1,0 +1,31 @@
+name: Unda APK ya Android
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Vuta Kodi
+      uses: actions/checkout@v4
+
+    - name: Weka Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Unda APK
+      uses: ArtemSydoryk/buildozer-action@v1
+      with:
+        command: buildozer -v android debug
+        buildozer_version: master
+
+    - name: Hifadhi APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: otomesheni-app-debug
+        path: bin/*.apk
