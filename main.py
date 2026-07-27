@@ -44,3 +44,4 @@ if __name__ == "__main__":
         print("Gemini imerudisha mashairi")
         wimbo = tengeneza_wimbo(data["lyrics"])
         print("Wimbo umekamilika")
+        
